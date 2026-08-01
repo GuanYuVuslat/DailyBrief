@@ -188,7 +188,7 @@ jobs:
           cache: 'npm'
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install
 
       # Bring previous reports into the workspace so they survive each run
       # and so build-site can list them all in the archive.
