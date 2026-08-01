@@ -233,6 +233,13 @@ jobs:
           WEB_MODE: 'true'
         run: npm run daily
 
+      - name: Send report via email
+        if: success()
+        env:
+          QQ_EMAIL: ${{ secrets.QQ_EMAIL }}
+          QQ_SMTP_AUTH_CODE: ${{ secrets.QQ_SMTP_AUTH_CODE }}
+        run: npm run notify-email
+
       - name: Build static site (index + archive)
         run: npm run build-site
 
